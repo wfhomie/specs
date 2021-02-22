@@ -41,18 +41,18 @@ SERVER already know about people in each group.
 The GAME should be web based, and each group should playing independently from other groups.
 Each GAME could be completly independent from other GAMEs, it means that they could hosted in different
 machines and they do not need to have any connection with each other.
-SERVER provide several REST API, for authentication and indicating the group of a person as well as gathering
+SERVER provide several REST API, for validate and indicating the group of a person as well as gathering
 information about each round in the game.
-Each person, when he/she accessed the GAME address, provides a HTTP header named "Authentication" which contains
-a token string. the GAME could use Authenticate API of the SERVER to validate the token and get related information
+Each person, when he/she accessed the GAME address, provides a HTTP header named "Authorization" which contains
+a token string. the GAME could use Validate API of the SERVER to validate the token and get related information
 about the group and any game configuration. after finishing each round of game, game may use Wrap up API to provide
 any kind of useful informatioun about the game and players. for example the winner and loser list, their points, etc.
 Each sesson of game could consist of several round of game.
 
-## Authenticate API
-``` POST /authenticate/{token} ```
+## Validate API
+``` POST /validate/{token} ```
 
-The authenticate API must be called when a player reach out to the GAME website. The response contains information
+The validate API must be called when a player reach out to the GAME website. The response contains information
 about the player, his/her group, and may contains game configuration.
 
 Returns:
